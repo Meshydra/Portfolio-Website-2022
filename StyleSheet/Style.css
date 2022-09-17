@@ -1,6 +1,7 @@
 *{
     margin:0;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
 }
 :root {
     --white: #ffffff;
@@ -152,11 +153,10 @@ nav a:hover:not(.btnactive) {
 }
 
 #container{
-    margin-left: calc(1vw + 100px);
     padding: 10px 24px;
     align-items: center;
-    border: solid;
-    margin-right: 20px;    
+    border: solid;  
+    margin: auto;
     background-color: #dddd;
     border: #ccc solid 2px;    
     border-radius: 20px;
@@ -170,8 +170,8 @@ nav a:hover:not(.btnactive) {
 /* about me  page */
 .about-me {    
     margin-left: 100px;
-    display: none;
     padding: 20px;
+    animation: opa 1s;
 }
 
 .header {
@@ -196,6 +196,8 @@ nav a:hover:not(.btnactive) {
     margin-left: 100px;
     width: 80%;    
     display: none;
+    
+    animation: opa 1s;
 }
 
 .skill-container {
@@ -227,8 +229,10 @@ nav a:hover:not(.btnactive) {
 /*Qualifaction side*/
 .qual{
     margin-left: 100px;
-    display: block;
+    display: none;
     padding: 20px;
+    
+    animation: opa 1s;
 }
 
 .qual p{
@@ -244,7 +248,100 @@ nav a:hover:not(.btnactive) {
 .qual img{
     width: 100px;
 }
+/* cv */
+.cv{
+    display: none;
+    height: 100%;
+    width: 100%;
+    
+    animation: opa 1s;
+}
+.cv iframe{
+    width:70vw;
+     height:700px;     
+        margin: auto;
+}
+/* contact */
+.contact{
+    display: none;    
+    animation: opa 1s;
+    margin: auto;    
+    width: 80%;
 
+}
+
+#contact_form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  }
+
+.row{
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+}
+
+.row label{
+    text-align: left;
+  color: #000;
+  font-size: 18px;
+  margin-left: 10px;
+}
+input[type=text], textarea {
+  background-color: #fafcf8;
+  border-radius: 5px;
+  margin: auto 0;
+  color: #030303;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 10px #3e4444;
+  width: 100%;  
+  resize: none;
+  }
+
+input[type=text] {
+  height: 25px;
+}
+
+input[type=submit] {
+  background-color: #ff7b25;
+  color: #FFFFFF;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 0;
+  padding: 5px 24px;
+  margin: auto;
+  cursor: pointer;
+  transition: 1s;
+}
+input[type=submit]:hover {
+  background-color: #c05e1c;
+}
+
+
+.contacts{
+   width: 100%;
+   display: flex;
+}
+.contact div{
+    margin: auto;
+}
+.contact div a{    
+    margin: auto;
+}
+.contactl{
+    width: 60px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.contactl:hover{
+    filter: brightness(110%);
+}
 /* the world  landing page*/
 .landheader{
     position: absolute;
@@ -398,6 +495,10 @@ nav a span {
     body{
         overflow-y: auto;
     }
+    
+    .cv iframe{
+    width:90vw;
+}
     
     .theworld ,.rem{
         display: none !important;
@@ -702,12 +803,12 @@ nav:hover a{
     
 }
 
-@keyframes slide-up {
+@keyframes opa {
     0%{
-        transform: translate(0%);
+        opacity: 0;
     }
     100%{
-        transform: translate(100%);
+        opacity: 1;
     }
     
 }

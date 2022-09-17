@@ -13,6 +13,7 @@ const btnexpEl = document.querySelector(".btncv");
 const btncontactEl = document.querySelector(".btncontact");
 const contactEl = document.querySelector(".contact");
 const expEl = document.querySelector(".cv");
+var done = 0;
 
 function checkcookie() {
     if (localStorage.getItem("toggleVar") === null) {
@@ -49,9 +50,9 @@ function pageload() {
         skillEl.style.display = "none";
         btnskillEl.classList.remove('btnactive');
         qualEl.style.display = "none";
-        btnqualEl.classList.remove('btnactive');        
+        btnqualEl.classList.remove('btnactive');
         expEl.style.display = "none";
-        btnexpEl.classList.remove('btnactive');        
+        btnexpEl.classList.remove('btnactive');
         contactEl.style.display = "none";
         btncontactEl.classList.remove('btnactive');
     });
@@ -60,54 +61,72 @@ function pageload() {
         skillEl.style.display = "block";
         btnskillEl.classList.add('btnactive');
         aboutEl.style.display = "none";
-        btnaboutEl.classList.remove('btnactive');        
+        btnaboutEl.classList.remove('btnactive');
         qualEl.style.display = "none";
-        btnqualEl.classList.remove('btnactive');               
+        btnqualEl.classList.remove('btnactive');
         expEl.style.display = "none";
-        btnexpEl.classList.remove('btnactive');        
+        btnexpEl.classList.remove('btnactive');
         contactEl.style.display = "none";
         btncontactEl.classList.remove('btnactive');
     });
 
-    btnqualEl.addEventListener("click", () => {        
+    btnqualEl.addEventListener("click", () => {
         qualEl.style.display = "block";
         btnqualEl.classList.add('btnactive');
         skillEl.style.display = "none";
         btnskillEl.classList.remove('btnactive');
         aboutEl.style.display = "none";
-        btnaboutEl.classList.remove('btnactive');               
+        btnaboutEl.classList.remove('btnactive');
         expEl.style.display = "none";
-        btnexpEl.classList.remove('btnactive');        
+        btnexpEl.classList.remove('btnactive');
         contactEl.style.display = "none";
         btncontactEl.classList.remove('btnactive');
     });
 
-    btnexpEl.addEventListener("click", () => {        
-        expEl.style.display = "block";
+    btnexpEl.addEventListener("click", () => {
+        expEl.style.display = "flex";
         btnexpEl.classList.add('btnactive');
         skillEl.style.display = "none";
         btnskillEl.classList.remove('btnactive');
         aboutEl.style.display = "none";
-        btnaboutEl.classList.remove('btnactive');               
+        btnaboutEl.classList.remove('btnactive');
         qualEl.style.display = "none";
-        btnqualEl.classList.remove('btnactive');        
+        btnqualEl.classList.remove('btnactive');
         contactEl.style.display = "none";
         btncontactEl.classList.remove('btnactive');
     });
 
-    btncontactEl.addEventListener("click", () => {        
+    btncontactEl.addEventListener("click", () => {
         contactEl.style.display = "block";
         btncontactEl.classList.add('btnactive');
         skillEl.style.display = "none";
         btnskillEl.classList.remove('btnactive');
         aboutEl.style.display = "none";
-        btnaboutEl.classList.remove('btnactive');               
+        btnaboutEl.classList.remove('btnactive');
         expEl.style.display = "none";
-        btnexpEl.classList.remove('btnactive');        
+        btnexpEl.classList.remove('btnactive');
         qualEl.style.display = "none";
         btnqualEl.classList.remove('btnactive');
     });
-    
+
+    window.addEventListener("scroll", () => {
+        const rect = mainEl.getBoundingClientRect();
+        console.log(rect.top, scrollY, window.innerHeight);
+        if (scrollY + window.innerHeight > rect.top && done == 0) {
+            aboutEl.style.display = "block";
+            btnaboutEl.classList.add('btnactive');
+            skillEl.style.display = "none";
+            btnskillEl.classList.remove('btnactive');
+            qualEl.style.display = "none";
+            btnqualEl.classList.remove('btnactive');
+            expEl.style.display = "none";
+            btnexpEl.classList.remove('btnactive');
+            contactEl.style.display = "none";
+            btncontactEl.classList.remove('btnactive');
+            done = 1
+        }
+    })
+
 }
 
 window.onload = pageload();
